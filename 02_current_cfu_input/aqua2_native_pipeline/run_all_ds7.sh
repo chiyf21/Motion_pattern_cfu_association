@@ -22,8 +22,14 @@ for z in "${SLICES[@]}"; do
   export AQUA_BASE_DIR="$BASE_DIR"
   export AQUA2_DIR
   export AQUA_POOL_WORKERS="$WORKERS"
-  "$MATLAB" -nodisplay -nosplash -nodesktop -r "run('$SCRIPT_DIR/02_run_event_detection_ds7.m'); exit;"
-  if [[ "$FORCE" == "1" || ! -f "$BASE_DIR/output/slices/cfu_ds7_all_ot030_min5_group5/slice_Z$(printf '%02d' "$z")_ds7_native_CFU_ot030_min5_group5.mat" ]]; then
+  event_file="$BASE_DIR/output/slices/results_ds7_all_parallel8/slice_Z$(printf '%02d' "$z")_ds7_AQuA2_parallel8.mat"
+  cfu_file="$BASE_DIR/output/slices/cfu_ds7_all_ot030_min5_group5/slice_Z$(printf '%02d' "$z")_ds7_native_CFU_ot030_min5_group5.mat"
+  if [[ "$FORCE" == "1" || ! -f "$event_file" ]]; then
+    "$MATLAB" -nodisplay -nosplash -nodesktop -r "run('$SCRIPT_DIR/02_run_event_detection_ds7.m'); exit;"
+  else
+    echo "Skipping existing event output for Z$(printf '%02d' "$z")"
+  fi
+  if [[ "$FORCE" == "1" || ! -f "$cfu_file" ]]; then
     "$MATLAB" -nodisplay -nosplash -nodesktop -r "run('$SCRIPT_DIR/03_run_cfu_aggregation_ds7.m'); exit;"
   else
     echo "Skipping existing CFU output for Z$(printf '%02d' "$z")"
