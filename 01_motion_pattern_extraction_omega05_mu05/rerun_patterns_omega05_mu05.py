@@ -13,7 +13,7 @@ import src_registration.motion_correlation_pattern_v2 as mcp_v2
 import src_registration.motion_stage_cache as msc
 
 DATA_BASE = Path("/home/cyf/wbi/wbi_code/data/f338_velocity_decomp")
-OUT_BASE = Path("/home/cyf/wbi/wbi_code/experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns")
+OUT_BASE = Path("/home/cyf/wbi/wbi_code/experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns")
 STAGE = "06_patterns"
 
 

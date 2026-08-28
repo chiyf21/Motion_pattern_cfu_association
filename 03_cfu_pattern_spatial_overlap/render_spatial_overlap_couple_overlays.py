@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render Fig4-style motion-arrow overlays for Fig5_v0827 spatial modules."""
+"""Render Fig4-style motion-arrow overlays for motion_pattern_cfu_association spatial modules."""
 
 from pathlib import Path
 import csv
@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 
 BASE = Path('/home/cyf/wbi/wbi_code')
 sys.path.insert(0, str(BASE))
-CFU_SPATIAL = BASE / 'experiments/Fig5_v0827/03_cfu_pattern_spatial_overlap'
-OUT = BASE / 'experiments/Fig5_v0827/03_cfu_pattern_spatial_overlap/figures/couple_overlays'
+CFU_SPATIAL = BASE / 'experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap'
+OUT = BASE / 'experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap/figures/couple_overlays'
 REF = Path('/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif')
 PS = 7
 GRID_STEP = 3
@@ -24,7 +24,7 @@ manifest = []
 
 for csv_path in sorted(CFU_SPATIAL.glob('spatial_final_slice*.csv')):
     slice_id = int(csv_path.stem.split('slice')[-1])
-    pattern_path = BASE / f'experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{slice_id:02d}_velocity_decomp/06_patterns/objects.pkl'
+    pattern_path = BASE / f'experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{slice_id:02d}_velocity_decomp/06_patterns/objects.pkl'
     patterns = {p.pattern_id: p for p in pickle.load(pattern_path.open('rb'))['patterns']}
     reference = tifffile.imread(REF)[slice_id].astype(float)
     rows = list(csv.DictReader(csv_path.open()))

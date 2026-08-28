@@ -26,9 +26,9 @@ from matplotlib.ticker import MaxNLocator
 
 
 BASE = Path("/home/cyf/wbi/wbi_code")
-EXP = BASE / "experiments/Fig5_v0827/04_all_pattern_cfu_lag_cooccurrence"
+EXP = BASE / "experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence"
 RESULT = EXP / "results/global_shift_empirical_fdr_onset"
-CFU_BASE = BASE / "experiments/Fig5_v0827/02_current_cfu_input/cfu"
+CFU_BASE = BASE / "experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu"
 PATTERN_SLICE = int(os.environ.get("PATTERN_SLICE", "8"))
 PATTERN_ID = int(os.environ.get("PATTERN_ID", "200"))
 CFU_SLICE = int(os.environ.get("CFU_SLICE", "8"))
@@ -65,7 +65,7 @@ CFU_CMAP = cmap_from_hue("#D9EEF2", "#087F8C", "cfu_strength")
 def load_pattern():
     path = (
         BASE
-        / f"experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{PATTERN_SLICE:02d}_velocity_decomp"
+        / f"experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{PATTERN_SLICE:02d}_velocity_decomp"
         / "06_patterns/objects.pkl"
     )
     with path.open("rb") as f:

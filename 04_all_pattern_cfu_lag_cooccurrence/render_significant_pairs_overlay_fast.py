@@ -11,10 +11,10 @@ import tifffile
 from PIL import Image, ImageDraw
 
 BASE = Path('/home/cyf/wbi/wbi_code')
-EXP = BASE / 'experiments/Fig5_v0827/04_all_pattern_cfu_lag_cooccurrence'
+EXP = BASE / 'experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence'
 RESULT = EXP / 'results/global_shift_empirical_fdr_onset'
 OUT = EXP / 'figures/significant_pairs_spatiotemporal_original_overlay_fast'
-CFU_BASE = BASE / 'experiments/Fig5_v0827/02_current_cfu_input/cfu'
+CFU_BASE = BASE / 'experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu'
 OUT.mkdir(parents=True, exist_ok=True)
 T, WINDOW, PS, GAP = 1598, 3, 7, 5
 REF_TIF = Path('/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif')
@@ -24,7 +24,7 @@ spec = importlib.util.spec_from_file_location('fdr', EXP / 'run_all_cfu_pattern_
 fdr = importlib.util.module_from_spec(spec); spec.loader.exec_module(fdr)
 
 def load_patterns(z):
-    p = BASE / f'experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp/06_patterns/objects.pkl'
+    p = BASE / f'experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp/06_patterns/objects.pkl'
     with p.open('rb') as f: return {int(x.pattern_id): x for x in pickle.load(f)['patterns']}
 
 def load_cfu_masks(z):
@@ -97,7 +97,7 @@ def main():
     top=sorted(rows,key=lambda r:float(r['q_empirical_global']))[:20]; sheet=Image.new('RGB',(1400,1030),'white')
     for i,r in enumerate(top):
         im=Image.open(OUT/draw_pair(r,patterns,masks,timing,peaks,bgs,bg_panels)).convert('RGB').resize((350,257),Image.Resampling.BILINEAR); sheet.paste(im,((i%4)*350,(i//4)*257))
-    sheet.save(OUT/'top20_q_montage.png',compress_level=1); (OUT/'README.md').write_text('Fig5_v0827 (omega=mu=0.5) fast raster overlay version. Original registered reference is shown in both spatial panels. Pattern masks are mapped by PS=7; CFU masks are transposed from HDF5 and mapped with regMaskGap=5. Timeline uses 0-based frames; red=pattern motion peaks, blue=CFU onsets, orange=best-lag hit windows.\n')
+    sheet.save(OUT/'top20_q_montage.png',compress_level=1); (OUT/'README.md').write_text('motion_pattern_cfu_association (omega=mu=0.5) fast raster overlay version. Original registered reference is shown in both spatial panels. Pattern masks are mapped by PS=7; CFU masks are transposed from HDF5 and mapped with regMaskGap=5. Timeline uses 0-based frames; red=pattern motion peaks, blue=CFU onsets, orange=best-lag hit windows.\n')
     print('rendered',len(rows),'pairs'); print('output',OUT)
 
 if __name__=='__main__': main()

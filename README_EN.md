@@ -1,4 +1,4 @@
-# Fig5_v0827 experimental overview
+# motion_pattern_cfu_association experimental overview
 
 This is an independent comparison using `omega=0.5` and `mu=0.5`. It does not overwrite the legacy Fig5 patterns, CFU files, statistical results, or figures. Displayed slice numbers in filenames are 1-based; the raw motion H5 `slice` argument is 0-based.
 

@@ -31,11 +31,11 @@ import tifffile
 
 
 BASE = Path("/home/cyf/wbi/wbi_code")
-EXP23 = BASE / "experiments/Fig5_v0827/04_all_pattern_cfu_lag_cooccurrence"
-EXP24 = BASE / "experiments/Fig5_v0827/05_local_mechanical_modules_distributed_ca_network"
+EXP23 = BASE / "experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence"
+EXP24 = BASE / "experiments/motion_pattern_cfu_association/05_local_mechanical_modules_distributed_ca_network"
 MODULES = EXP24 / "02_module_cfu_network/current_module_table.csv"
 EDGES = EXP24 / "02_module_cfu_network/module_cfu_associations_fdr_q005.csv"
-CFU_LINKS = BASE / "experiments/Fig5_v0827/02_current_cfu_input/cfu"
+CFU_LINKS = BASE / "experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu"
 OUT = EXP24 / "03_module_cfu_spatial_gallery_q005"
 REF_TIF = Path("/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif")
 
@@ -76,7 +76,7 @@ def cfu_weight(z: int, cid: int):
 def pattern_object(z: int, pid: int):
     path = (
         BASE
-        / f"experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp"
+        / f"experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp"
         / "06_patterns/objects.pkl"
     )
     with path.open("rb") as f:

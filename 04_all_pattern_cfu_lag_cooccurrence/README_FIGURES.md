@@ -1,4 +1,4 @@
-# Fig5_v0827 critical visual outputs
+# motion_pattern_cfu_association critical visual outputs
 
 All scripts in this folder use the omega=0.5, mu=0.5 v0827 patterns and the
 linked current CFUs. They never read the legacy `Fig5/23` pattern objects.

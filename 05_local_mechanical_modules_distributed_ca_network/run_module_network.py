@@ -19,13 +19,13 @@ import numpy as np
 
 
 BASE = Path("/home/cyf/wbi/wbi_code")
-EXP23 = BASE / "experiments/Fig5_v0827/04_all_pattern_cfu_lag_cooccurrence"
-OUT = BASE / "experiments/Fig5_v0827/05_local_mechanical_modules_distributed_ca_network"
+EXP23 = BASE / "experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence"
+OUT = BASE / "experiments/motion_pattern_cfu_association/05_local_mechanical_modules_distributed_ca_network"
 # The current spatial result is a standalone, reusable analysis stage.  Fig5/24
 # consumes it together with Fig5/23's temporal associations.
-SPATIAL_OUT = BASE / "experiments/Fig5_v0827/03_cfu_pattern_spatial_overlap"
+SPATIAL_OUT = BASE / "experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap"
 NETWORK_OUT = OUT / "02_module_cfu_network"
-CFU_LINKS = BASE / "experiments/Fig5_v0827/02_current_cfu_input/cfu"
+CFU_LINKS = BASE / "experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu"
 FDR_RESULT = (
     EXP23
     / "results/global_shift_empirical_fdr_onset/empirical_FDR_significant_pairs.csv"
@@ -88,7 +88,7 @@ def load_current_cfus(z: int):
 def load_patterns(z: int):
     path = (
         BASE
-        / f"experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp"
+        / f"experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp"
         / "06_patterns/objects.pkl"
     )
     with path.open("rb") as f:
@@ -104,7 +104,7 @@ def write_input_version_audit():
         cfu_real = Path(os.path.realpath(cfu_link))
         pattern_path = (
             BASE
-            / f"experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp"
+            / f"experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns/Slice{z:02d}_velocity_decomp"
             / "06_patterns/objects.pkl"
         )
         with h5py.File(cfu_link, "r") as f:
@@ -128,7 +128,7 @@ def write_input_version_audit():
         "Spatial modules are computed from the Fig5/23 `input_links/cfu` files listed in the CSV. "
         "The temporal network is joined from Fig5/23 `empirical_FDR_significant_pairs.csv`, "
         "whose runner reads the same `input_links/cfu` directory. Pattern masks and activations "
-        "come from the listed Fig5_v0827 pattern `06_patterns/objects.pkl` files.\n"
+        "come from the listed motion_pattern_cfu_association pattern `06_patterns/objects.pkl` files.\n"
     )
 
 
@@ -307,8 +307,8 @@ def main(spatial_only: bool = False):
 
     if spatial_only:
         (SPATIAL_OUT / "README.md").write_text(
-            "# Fig5_v0827 current spatial CFU-pattern modules\n\n"
-            "Computed from the Fig5_v0827 omega=0.5, mu=0.5 pattern files and "
+            "# motion_pattern_cfu_association current spatial CFU-pattern modules\n\n"
+            "Computed from the motion_pattern_cfu_association omega=0.5, mu=0.5 pattern files and "
             "the linked current CFUs. Criteria: pattern members>=5, ratio<=3, coverage>=0.5. "
             "Run `run_spatial_overlap.py` in this directory to recompute this stage only.\n"
         )

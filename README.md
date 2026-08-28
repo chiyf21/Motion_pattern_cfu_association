@@ -1,4 +1,4 @@
-# Fig5_v0827 实验总览
+# motion_pattern_cfu_association 实验总览
 
 这是 omega=0.5、mu=0.5 的独立比较版本。它不覆盖旧 Fig5 的 pattern、CFU、统计结果或图。所有 slice 编号在文件名中使用 1-based 展示编号；原始 motion H5 的 slice 参数仍明确是 0-based。
 

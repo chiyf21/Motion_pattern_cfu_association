@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create the Fig4-style spatial-module summary for Fig5_v0827."""
+"""Create the Fig4-style spatial-module summary for motion_pattern_cfu_association."""
 
 from pathlib import Path
 import csv
@@ -9,8 +9,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 BASE = Path('/home/cyf/wbi/wbi_code')
-RES = BASE / 'experiments/Fig5_v0827/03_cfu_pattern_spatial_overlap'
-OUT = BASE / 'experiments/Fig5_v0827/03_cfu_pattern_spatial_overlap/figures/fig4_style_spatial_overlap'
+RES = BASE / 'experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap'
+OUT = BASE / 'experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap/figures/fig4_style_spatial_overlap'
 OUT.mkdir(parents=True, exist_ok=True)
 
 all_rows = []

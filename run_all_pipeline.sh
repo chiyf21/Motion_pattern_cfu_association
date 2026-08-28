@@ -2,7 +2,7 @@
 set -euo pipefail
 
 BASE=/home/cyf/wbi/wbi_code
-ROOT=$BASE/experiments/Fig5_v0827
+ROOT=$BASE/experiments/motion_pattern_cfu_association
 LOG=$ROOT/logs
 mkdir -p "$LOG"
 cd "$BASE"

@@ -1,4 +1,4 @@
-# Fig5_v0827 spatial module and Fig4-style annotation outputs
+# motion_pattern_cfu_association spatial module and Fig4-style annotation outputs
 
 ## Stage 03: spatial module extraction
 

@@ -73,7 +73,7 @@ sys.path.insert(1, str(BASE / "code"))
 
 OUT = (
     BASE
-    / "experiments/Fig5_v0827/04_all_pattern_cfu_lag_cooccurrence"
+    / "experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence"
     / "results/global_shift_empirical_fdr_onset"
 )
 
@@ -81,10 +81,10 @@ RESULTS = OUT
 
 CFU_BASE = (
     BASE
-    / "experiments/Fig5_v0827/02_current_cfu_input/cfu"
+    / "experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu"
 )
 
-PAT_BASE = BASE / "experiments/Fig5_v0827/01_motion_pattern_extraction_omega05_mu05/patterns"
+PAT_BASE = BASE / "experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns"
 
 
 # Movie length
