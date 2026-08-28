@@ -1,0 +1,1 @@
+motion_pattern_cfu_association (omega=mu=0.5) fast raster overlay version. Original registered reference is shown in both spatial panels. Pattern masks are mapped by PS=7; CFU masks are transposed from HDF5 and mapped with regMaskGap=5. Timeline uses 0-based frames; red=pattern motion peaks, blue=CFU onsets, orange=best-lag hit windows.

@@ -1,0 +1,3 @@
+Article-style rendering for slice08 P200 x slice08 CFU002.
+
+The pattern and CFU spatial maps are saved as separate figures without colorbars. Within each same-hue map, brightness encodes the pattern unified_response_field vector norm or the AQuA2 cfuInfo1 field 3 weighted spatial map. The pattern timeline is a binary 0/1 union of all member activation durations; dots mark the same motion peaks used by the current lag co-occurrence run. The CFU curve is AQuA2 cfuInfo1 field 6 (native dF/F); onset field 4 is retained in metadata but not drawn. Coordinates use the current PS=7 and regMaskGap=5 mapping, with the established inverted-y display convention.

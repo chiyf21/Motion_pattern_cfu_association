@@ -1,5 +1,5 @@
-# 02：Current CFU input（中文）
+# 02 当前 CFU 输入
 
-此目录集中保存本版本使用的 AQuA2 CFU 输入，避免不同分析读取不同版本。`cfu/` 下有 12 个 symbolic link，分别指向 Fig5/23 中 slice01–slice12 的 CFU MAT 文件。
+本目录固定保存实验 03–05 共用的 AQuA2 CFU 文件，按展示编号 slice01–slice12 各有一个链接。当前链接指向仓库外部的实验室服务器，因此不是可移植路径。
 
-这些 CFU 来自 ds7 的 AQuA2 原生 event detection/aggregation，event 数量阈值为 5。本目录不重新运行 AQuA2，也不应直接修改链接目标；如需改变 CFU 参数，应在 Fig5/22 中建立新版本并更新输入审计。
+这些输入来自 ds7 的 AQuA2 原生 event detection 和 CFU 聚合结果，每个 CFU 至少包含 5 个 event。本目录不运行 AQuA2。若在其他机器复现，应将实际 MAT 文件复制到本地数据目录，再修改链接或本地路径配置，不要把私人数据提交到 GitHub。
