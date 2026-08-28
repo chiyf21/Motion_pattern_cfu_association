@@ -1,0 +1,9 @@
+module_id,module_slice_0based,module_pattern_id,local_cfu_id,n_q005_associated_cfus,n_q005_nonlocal_cfus_shown,figure_png,figure_pdf
+M_S01_P314_C004,1,314,4,2,2,figures/M_S01_P314_C004_q005_CFU_locations.png,
+M_S02_P305_C007,2,305,7,6,5,figures/M_S02_P305_C007_q005_CFU_locations.png,
+M_S04_P333_C010,4,333,10,6,5,figures/M_S04_P333_C010_q005_CFU_locations.png,
+M_S04_P343_C010,4,343,10,2,2,figures/M_S04_P343_C010_q005_CFU_locations.png,
+M_S05_P041_C011,5,41,11,2,2,figures/M_S05_P041_C011_q005_CFU_locations.png,
+M_S06_P291_C002,6,291,2,7,7,figures/M_S06_P291_C002_q005_CFU_locations.png,
+M_S06_P298_C002,6,298,2,6,6,figures/M_S06_P298_C002_q005_CFU_locations.png,
+M_S06_P317_C002,6,317,2,3,3,figures/M_S06_P317_C002_q005_CFU_locations.png,

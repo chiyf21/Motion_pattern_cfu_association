@@ -1,0 +1,4 @@
+module_id,module_slice_0based,module_pattern_id,local_cfu_id,module_ratio,module_coverage,source_cfu_slice_0based,source_cfu_id,source_scope,temporal_direction,candidate_upstream,best_lag,window_frames,q_empirical_global,best_lag_binomial_p,pair_score,n_motion_events,k_hit_motion_events_at_best_lag,n_valid_motion_events_at_best_lag
+M_S04_P333_C010,4,333,10,1.1818631329113924,0.6489319620253164,12,2,cross_slice_cfu,synchronous,0,0,3,0.00011088933244621867,2.9253998634896852e-08,7.533814763209789,7,7,7
+M_S06_P291_C002,6,291,2,1.5112266112266113,0.5547817047817047,1,4,cross_slice_cfu,candidate_downstream,0,1,3,0.00011088933244621867,8.320671105088236e-08,7.079841644204166,6,6,6
+M_S06_P298_C002,6,298,2,1.2695426195426196,0.5510395010395011,1,4,cross_slice_cfu,synchronous,0,0,3,0.00011088933244621867,8.320671105088236e-08,7.079841644204166,6,6,6

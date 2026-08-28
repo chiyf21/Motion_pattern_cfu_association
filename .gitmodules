@@ -1,0 +1,3 @@
+[submodule "wholistic_registration"]
+	path = wholistic_registration
+	url = git@github.com:vruetten/wholistic_registration.git

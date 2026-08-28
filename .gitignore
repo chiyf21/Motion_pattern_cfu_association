@@ -1,0 +1,15 @@
+# Large generated caches and statistical tables stay on the server, not in Git.
+01_motion_pattern_extraction_omega05_mu05/patterns/
+01_motion_pattern_extraction_omega05_mu05/pipeline_from_raw_omega05_mu05/__pycache__/
+04_all_pattern_cfu_lag_cooccurrence/results/
+04_all_pattern_cfu_lag_cooccurrence/figures/
+logs/
+logs_failed_import_path_*/
+**/__pycache__/
+*.pyc
+*.npz
+*.pkl
+*.mat
+*.h5
+*.tif
+*.tiff
