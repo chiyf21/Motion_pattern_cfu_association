@@ -3,6 +3,7 @@
 01_motion_pattern_extraction_omega05_mu05/pipeline_from_raw_omega05_mu05/__pycache__/
 04_all_pattern_cfu_lag_cooccurrence/results/
 04_all_pattern_cfu_lag_cooccurrence/figures/
+03_cfu_pattern_spatial_overlap/figures/couple_overlays/
 logs/
 logs_failed_import_path_*/
 **/__pycache__/
