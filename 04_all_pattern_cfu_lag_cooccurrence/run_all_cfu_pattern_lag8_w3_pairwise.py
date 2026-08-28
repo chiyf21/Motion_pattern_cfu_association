@@ -66,7 +66,8 @@ from scipy.stats import binom
 # Configuration
 # ============================================================
 
-BASE = Path("/home/cyf/wbi/wbi_code")
+BASE = Path(__file__).resolve().parents[1]
+# Server example: BASE = Path('/home/cyf/wbi/wbi_code')
 
 sys.path.insert(0, str(BASE))
 sys.path.insert(1, str(BASE / "code"))

@@ -18,7 +18,10 @@ import h5py
 import numpy as np
 from scipy import ndimage
 
-CLONE = Path('/home/cyf/wbi/wbi_code/experiments/Fig5/wholistic_registration')
+REPO_ROOT = Path(__file__).resolve().parents[2]
+# Portable default: use the pinned submodule shipped with this repository.
+# Server example: REPO_ROOT = Path('/home/cyf/wbi/wbi_code/experiments/motion_pattern_cfu_association')
+CLONE = REPO_ROOT / 'wholistic_registration'
 sys.path.insert(0, str(CLONE / 'src'))
 from wholistic_registration.utils import motion_correlation_pattern as mcp
 from wholistic_registration.utils import motion_stage_cache as cache

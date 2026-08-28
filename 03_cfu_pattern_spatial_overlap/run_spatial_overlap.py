@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import sys
 
-ROOT = Path("/home/cyf/wbi/wbi_code/experiments/motion_pattern_cfu_association")
+ROOT = Path(__file__).resolve().parents[1]
+# Server example: ROOT = Path('/home/cyf/wbi/wbi_code/experiments/motion_pattern_cfu_association')
 RUNNER = ROOT / "05_local_mechanical_modules_distributed_ca_network/run_module_network.py"
 subprocess.run([sys.executable, str(RUNNER), "--spatial-only"], check=True)

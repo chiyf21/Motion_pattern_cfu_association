@@ -37,3 +37,5 @@ The spatial analysis reads pattern objects plus CFU MAT files and writes `03_cfu
 In short: patch motion is the motion input; CFU MAT files are the calcium input; 03 and 04 are parallel analyses; 05 consumes both. No raw motion H5, raw calcium movie, or AQuA2 rerun is required to reproduce the downstream analyses once these derived inputs are supplied.
 
 The code should be run in the order 01 → 03 and 04 → 05. Experiment 03 and experiment 04 are parallel analyses; 05 depends on both. See the English and Chinese README in each directory for exact inputs, outputs, parameters, and command entry points.
+
+For a single place to check the handoff and current tracked figures, see `RESULTS_INDEX.md` (Chinese: `RESULTS_INDEX_CN.md`). Before running on another machine, edit the active paths and parameters in `config.py`; the file contains both portable placeholder lines and the current server examples. `run_all_pipeline.sh` is repository-relative and now includes the spatial-module computation explicitly.

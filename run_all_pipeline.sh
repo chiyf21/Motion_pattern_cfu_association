@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BASE=/home/cyf/wbi/wbi_code
-ROOT=$BASE/experiments/motion_pattern_cfu_association
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+# Server example: ROOT=/home/cyf/wbi/wbi_code/experiments/motion_pattern_cfu_association
+BASE=$(cd "$ROOT/../.." && pwd)
 LOG=$ROOT/logs
 mkdir -p "$LOG"
 cd "$BASE"
@@ -18,7 +19,10 @@ for pid in "${pattern_pids[@]}"; do wait "$pid"; done
 echo "[$(date -Is)] Temporal co-occurrence" | tee -a "$LOG/pipeline.log"
 python "$ROOT/04_all_pattern_cfu_lag_cooccurrence/run_all_cfu_pattern_lag8_w3_pairwise.py" > "$LOG/temporal.log" 2>&1
 
-echo "[$(date -Is)] Spatial modules, network and gallery" | tee -a "$LOG/pipeline.log"
+echo "[$(date -Is)] Spatial overlap modules" | tee -a "$LOG/pipeline.log"
+python "$ROOT/03_cfu_pattern_spatial_overlap/run_spatial_overlap.py" > "$LOG/spatial_overlap.log" 2>&1
+
+echo "[$(date -Is)] Network and figures" | tee -a "$LOG/pipeline.log"
 python "$ROOT/05_local_mechanical_modules_distributed_ca_network/run_module_network.py" > "$LOG/spatial_and_network.log" 2>&1
 python "$ROOT/05_local_mechanical_modules_distributed_ca_network/render_module_cfu_spatial_gallery.py" > "$LOG/gallery.log" 2>&1
 python "$ROOT/03_cfu_pattern_spatial_overlap/render_spatial_overlap_stats.py" > "$LOG/fig4_style_stats.log" 2>&1

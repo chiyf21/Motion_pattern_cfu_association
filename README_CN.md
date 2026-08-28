@@ -27,3 +27,5 @@ CFU 交付内容是 `02_current_cfu_input/cfu/` 中链接所代表的 12 个实�
 空间分析读取 pattern objects 和 CFU MAT，输出 `03_cfu_pattern_spatial_overlap/spatial_all_overlap_slice*.csv`、`spatial_final_slice*.csv` 与 `summary_all_slices.csv`。时间分析读取同一批 pattern 和 CFU，输出位于 `04_all_pattern_cfu_lag_cooccurrence/results/global_shift_empirical_fdr_onset/`。module network 分析读取空间 final 表和时间显著 pair 表，输出位于 `05_local_mechanical_modules_distributed_ca_network/`。
 
 简而言之：patch motion 是 motion 输入，CFU MAT 是 calcium 输入；03 和 04 是并列分析；05 同时依赖二者。只要这些派生输入齐全，就不需要提供原始 motion H5、原始 calcium movie，也不需要重新运行 AQuA2。
+
+如需集中查看交付内容和当前纳入 Git 的图，参见 `RESULTS_INDEX_CN.md`（英文版为 `RESULTS_INDEX.md`）。换机器运行前请先编辑 `config.py` 中的有效路径和参数；该文件同时保留了可移植的占位路径和当前服务器路径示例。`run_all_pipeline.sh` 已改为仓库相对路径，并明确加入空间 module 的计算阶段。

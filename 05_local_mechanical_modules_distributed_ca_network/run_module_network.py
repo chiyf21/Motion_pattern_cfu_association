@@ -18,7 +18,8 @@ import h5py
 import numpy as np
 
 
-BASE = Path("/home/cyf/wbi/wbi_code")
+BASE = Path(__file__).resolve().parents[1]
+# Server example: BASE = Path('/home/cyf/wbi/wbi_code')
 EXP23 = BASE / "experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence"
 OUT = BASE / "experiments/motion_pattern_cfu_association/05_local_mechanical_modules_distributed_ca_network"
 # The current spatial result is a standalone, reusable analysis stage.  Fig5/24
