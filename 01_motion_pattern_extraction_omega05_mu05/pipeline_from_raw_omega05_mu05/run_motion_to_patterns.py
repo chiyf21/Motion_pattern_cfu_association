@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -109,19 +110,35 @@ def stage5(out: Path, overwrite: bool):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--raw-motion-dir', type=Path, required=True)
-    p.add_argument('--invalid-mask-npy', type=Path, required=True,
+    p.add_argument('--raw-motion-dir', type=Path)
+    p.add_argument('--patch-motion-cache', type=Path,
+                   help='Existing 01_patch_motion directory containing arrays.npz and metadata.json; skips raw H5 input.')
+    p.add_argument('--invalid-mask-npy', type=Path,
                    help='Boolean invalid/background mask in the raw HxW geometry (legacy-compatible convention).')
     p.add_argument('--slice', type=int, required=True, help='0-based H5 slice index.')
     p.add_argument('--output-root', type=Path, required=True)
     p.add_argument('--through-stage', choices=['01','02','03','04','06'], default='06')
     p.add_argument('--overwrite', action='store_true')
-    args = p.parse_args(); mask = np.load(args.invalid_mask_npy).astype(bool)
+    args = p.parse_args()
     out = args.output_root / f'Slice{args.slice:02d}_velocity_decomp'; out.mkdir(parents=True, exist_ok=True)
     cache.write_cache_metadata(out, project_name='Fig5_canonical_motion_pipeline', extra={
         'slice_index_0based':args.slice, 'clone_commit':'2b3c4e611ca194d391a31b56f6bc93a28ca90b13',
         'canonical_parameters':CANONICAL})
-    stage1(args.raw_motion_dir, mask, args.slice, out, args.overwrite)
+    if args.patch_motion_cache is not None:
+        source = args.patch_motion_cache
+        if not (source / 'arrays.npz').exists():
+            raise FileNotFoundError(f'Missing arrays.npz in {source}')
+        (out / '01_patch_motion').mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source / 'arrays.npz', out / '01_patch_motion' / 'arrays.npz')
+        if (source / 'metadata.json').exists():
+            shutil.copy2(source / 'metadata.json', out / '01_patch_motion' / 'metadata.json')
+    else:
+        if args.raw_motion_dir is None:
+            p.error('provide either --raw-motion-dir or --patch-motion-cache')
+        if args.invalid_mask_npy is None:
+            p.error('--invalid-mask-npy is required with --raw-motion-dir')
+        mask = np.load(args.invalid_mask_npy).astype(bool)
+        stage1(args.raw_motion_dir, mask, args.slice, out, args.overwrite)
     if args.through_stage == '01': return
     stage2(out, args.overwrite)
     if args.through_stage == '02': return
