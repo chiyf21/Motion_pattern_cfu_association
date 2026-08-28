@@ -25,10 +25,10 @@ import tifffile
 from matplotlib.ticker import MaxNLocator
 
 
-BASE = Path("/home/cyf/wbi/wbi_code")
-EXP = BASE / "experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence"
+BASE = Path(__file__).resolve().parents[1]
+EXP = BASE / "04_all_pattern_cfu_lag_cooccurrence"
 RESULT = EXP / "results/global_shift_empirical_fdr_onset"
-CFU_BASE = BASE / "experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu"
+CFU_BASE = BASE / "02_current_cfu_input/cfu"
 PATTERN_SLICE = int(os.environ.get("PATTERN_SLICE", "8"))
 PATTERN_ID = int(os.environ.get("PATTERN_ID", "200"))
 CFU_SLICE = int(os.environ.get("CFU_SLICE", "8"))
@@ -43,9 +43,10 @@ REG_MASK_GAP = 5
 FRAME_SECONDS = 3.80843294434
 TIMELINE_FIGSIZE = (8.4, 3.2)
 TIMELINE_XTICKS = np.arange(0, 101, 20)
-REF_TIF = Path("/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif")
-
 sys.path.insert(0, str(BASE))
+from config import REFERENCE_TIF
+REF_TIF = REFERENCE_TIF
+
 spec = importlib.util.spec_from_file_location(
     "fdr", EXP / "run_all_cfu_pattern_lag8_w3_pairwise.py"
 )

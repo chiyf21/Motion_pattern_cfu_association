@@ -19,13 +19,14 @@ import numpy as np
 import tifffile
 from PIL import Image
 
-BASE = Path("/home/cyf/wbi/wbi_code")
+BASE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BASE))  # required to unpickle MotionPattern objects
-SPATIAL = BASE / "experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap"
-PATTERN_ROOT = BASE / "experiments/motion_pattern_cfu_association/01_motion_pattern_extraction_omega05_mu05/patterns"
-CFU_BASE = BASE / "experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu"
+from config import REFERENCE_TIF
+SPATIAL = BASE / "03_cfu_pattern_spatial_overlap"
+PATTERN_ROOT = BASE / "01_motion_pattern_extraction_omega05_mu05/patterns"
+CFU_BASE = BASE / "02_current_cfu_input/cfu"
 OUT = SPATIAL / "figures/original_resolution_pattern_cfu_overlap"
-REFERENCE = Path("/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif")
+REFERENCE = REFERENCE_TIF
 
 PATCH = 7
 GAP = 5

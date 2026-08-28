@@ -8,9 +8,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-BASE = Path('/home/cyf/wbi/wbi_code')
-RES = BASE / 'experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap'
-OUT = BASE / 'experiments/motion_pattern_cfu_association/03_cfu_pattern_spatial_overlap/figures/fig4_style_spatial_overlap'
+BASE = Path(__file__).resolve().parents[1]
+RES = BASE / '03_cfu_pattern_spatial_overlap'
+OUT = BASE / '03_cfu_pattern_spatial_overlap/figures/fig4_style_spatial_overlap'
 OUT.mkdir(parents=True, exist_ok=True)
 
 all_rows = []

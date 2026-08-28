@@ -10,14 +10,17 @@ import numpy as np
 import tifffile
 from PIL import Image, ImageDraw
 
-BASE = Path('/home/cyf/wbi/wbi_code')
-EXP = BASE / 'experiments/motion_pattern_cfu_association/04_all_pattern_cfu_lag_cooccurrence'
+BASE = Path(__file__).resolve().parents[1]
+EXP = BASE / '04_all_pattern_cfu_lag_cooccurrence'
 RESULT = EXP / 'results/global_shift_empirical_fdr_onset'
 OUT = EXP / 'figures/significant_pairs_spatiotemporal_original_overlay_fast'
-CFU_BASE = BASE / 'experiments/motion_pattern_cfu_association/02_current_cfu_input/cfu'
+CFU_BASE = BASE / '02_current_cfu_input/cfu'
 OUT.mkdir(parents=True, exist_ok=True)
 T, WINDOW, PS, GAP = 1598, 3, 7, 5
-REF_TIF = Path('/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif')
+import sys
+sys.path.insert(0, str(BASE))
+from config import REFERENCE_TIF
+REF_TIF = REFERENCE_TIF
 PANEL_W, PANEL_H = 680, 500
 
 spec = importlib.util.spec_from_file_location('fdr', EXP / 'run_all_cfu_pattern_lag8_w3_pairwise.py')

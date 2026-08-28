@@ -10,10 +10,11 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, '/home/cyf/wbi/wbi_code')  # compatibility for cached src_registration objects
+sys.path.insert(0, str(ROOT))
+from config import REFERENCE_TIF
 PATTERN_ROOT = ROOT / '01_motion_pattern_extraction_omega05_mu05/patterns'
 OUT = PATTERN_ROOT / '_overview_members_ge5'
-REFERENCE = Path('/mnt/data21T_2/cyf/f338/f338_registrated_0530/reference/vol_ref_000599_000999.tif')
+REFERENCE = REFERENCE_TIF
 PATCH = 7
 
 def norm(x):
