@@ -6,4 +6,3 @@
 
 结果位于 `patterns/SliceXX_velocity_decomp/06_patterns/objects.pkl`。12 个 slice 共 2915 个 pattern，其中成员数至少为 5 的有 288 个。大型对象被 Git 忽略，如需复用当前结果需要单独提供。
 
-如需检查满足 `members>=5` 的 pattern，可运行 `render_pattern_overview_members_ge5.py`。脚本读取当前 pattern objects，只保留 `n_members >= 5` 的 pattern，并在 `patterns/_overview_members_ge5/` 输出每个 slice 的原始尺寸 overview、总览 contact sheet 和 `manifest.csv`。这些是本项目正式保留的 `members>=5` pattern overview；底层 pattern 缓存仍不纳入 Git。
