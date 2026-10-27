@@ -1,0 +1,2 @@
+slice,cluster_dist_thresh,n_episodes,n_modes,elapsed_seconds,pattern_count,members_ge5,members_ge8,members_ge10,max_members,median_members,mean_members,singleton_or_pair
+4,1.0,505,1084,393.38,247,33,13,7,14,3.0,3.3157894736842106,112
